@@ -205,19 +205,16 @@
 }
 
 /* Smaller Mobile 426px and below */
-@media (max-width: 426px) {
+@media (max-width: 480px) {
   .main {
     padding: 2rem;
   }
-
 }
-
 /* Smaller Mobile 321px and below */
 @media (max-width: 321px) {
   .main {
     padding: 1rem;
   }
-
 }
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
