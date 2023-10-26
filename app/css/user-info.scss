@@ -21,6 +21,15 @@
     margin-top: 24px;
   }
 
+  .avatar-modal {
+    width: 20rem; 
+    height: 20rem; 
+    object-fit: cover; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+  }
+
   > .name + .field {
     margin-top: 16px;
   }
