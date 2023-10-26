@@ -2,12 +2,13 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Gallery from "./gallery";
 
+
 export default async function Home() {
   const users = await getData()
 
   return (
     <main className={styles.main}>
-      <Gallery users={users} />
+      <Gallery users={users}/>
     </main>
   );
 }

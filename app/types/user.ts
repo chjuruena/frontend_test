@@ -27,3 +27,21 @@ export type Geo = {
   lat: string;
   lng: string;
 };
+
+export type GOTchar = {
+  characterName: string;
+  houseName: string;
+  characterImageThumb: string;
+  characterImageFull: string;
+  characterLink: string;
+  actorName: string;
+  actorLink: string;
+  nickname: string;
+  royal: boolean;
+  killed: string[];
+  servedBy: string[];
+  parentOf: string[];
+  siblings: string[];
+  marriedEngaged: string[];
+  killedBy: string;
+};
