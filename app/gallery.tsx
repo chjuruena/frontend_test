@@ -9,6 +9,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa6";
 
+import Controls from "./controls";
 import Modal from "./modal";
 
 import { User } from "./types/user";
@@ -24,7 +25,7 @@ const Gallery = ({ users }: GalleryProps) => {
   const handleModalOpen = (id: number) => {
     const user = usersList.find((item) => item.id === id) || null;
 
-    if(user) {
+    if (user) {
       setSelectedUser(user);
       setIsModalOpen(true);
     }
@@ -35,9 +36,36 @@ const Gallery = ({ users }: GalleryProps) => {
     setIsModalOpen(false);
   };
 
+  const sortData = (field:  string | { key: string; subKey: string }, direction: string) => {
+    const sortedData = [...usersList];
+  
+    const fieldMap = {
+      name: "name",
+      company: "company.name",
+      email: "email",
+    };
+  
+    sortedData.sort((a, b) => {
+      const aValue = fieldMap[field as keyof typeof fieldMap] ? a[fieldMap[field]] :  a.company.name;
+      const bValue = fieldMap[field as keyof typeof fieldMap] ? b[fieldMap[field]] :  b.company.name;
+      if (direction === "ascending") {
+        return aValue.localeCompare(bValue);
+      } else if (direction === "descending") {
+        return bValue.localeCompare(aValue);
+      }
+      return 0;
+    });
+  
+    setUsersList(sortedData);
+  };
+  
+
   return (
     <div className="user-gallery">
-      <h1 className="heading">Users</h1>
+      <div className="heading">
+        <h1 className="title">Users</h1>
+        <Controls onSortChange={sortData} />
+      </div>
       <div className="items">
         {usersList.map((user, index) => (
           <div
